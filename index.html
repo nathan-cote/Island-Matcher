@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venice Island Recommender</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Venice Island Recommender</h1>
+            <p>Find your perfect Venetian island match based on your preferences</p>
+        </header>
+
+        <main>
+            <section class="questionnaire">
+                <h2>Your Preferences</h2>
+                <form id="preference-form">
+                    <div class="form-group">
+                        <label for="affordability">Affordability (0-10):</label>
+                        <input type="range" id="affordability" min="0" max="10" value="5" step="1">
+                        <span id="affordability-value">5</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tourism">Tourism Level (0-10):</label>
+                        <input type="range" id="tourism" min="0" max="10" value="5" step="1">
+                        <span id="tourism-value">5</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="population">Population Density (0-10):</label>
+                        <input type="range" id="population" min="0" max="10" value="5" step="1">
+                        <span id="population-value">5</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reachability">Reachability (0-10):</label>
+                        <input type="range" id="reachability" min="0" max="10" value="5" step="1">
+                        <span id="reachability-value">5</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="accessibility">Accessibility (0-10):</label>
+                        <input type="range" id="accessibility" min="0" max="10" value="5" step="1">
+                        <span id="accessibility-value">5</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="green-space">Green Space (0-10):</label>
+                        <input type="range" id="green-space" min="0" max="10" value="5" step="1">
+                        <span id="green-space-value">5</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servability">Servability (0-10):</label>
+                        <input type="range" id="servability" min="0" max="10" value="5" step="1">
+                        <span id="servability-value">5</span>
+                    </div>
+
+                    <button type="submit" id="submit-btn">Find My Island</button>
+                </form>
+            </section>
+
+            <section class="results" id="results" style="display: none;">
+                <h2>Your Recommended Island</h2>
+                <div class="result-card">
+                    <h3 id="island-name">Island Name</h3>
+                    <div class="island-stats">
+                        <div class="stat">
+                            <span class="stat-label">Affordability:</span>
+                            <span class="stat-value" id="result-affordability">5</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Tourism:</span>
+                            <span class="stat-value" id="result-tourism">5</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Population Density:</span>
+                            <span class="stat-value" id="result-population">5</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Reachability:</span>
+                            <span class="stat-value" id="result-reachability">5</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Accessibility:</span>
+                            <span class="stat-value" id="result-accessibility">5</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Green Space:</span>
+                            <span class="stat-value" id="result-green-space">5</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Servability:</span>
+                            <span class="stat-value" id="result-servability">5</span>
+                        </div>
+                    </div>
+                    <div class="similarity">
+                        <span>Match Score: </span>
+                        <span id="similarity-score">85%</span>
+                    </div>
+                </div>
+                <button id="try-again-btn">Try Again</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
