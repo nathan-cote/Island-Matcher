@@ -1,39 +1,55 @@
-// Sample data - in a real app, you would load this from an API or JSON file
-const islands = [
-    // Example islands - you would replace with your actual 126 islands data
-    {
-        name: "Murano",
-        affordability: 6,
-        tourism: 8,
-        populationDensity: 7,
-        reachability: 8,
-        accessibility: 7,
-        greenSpace: 4,
-        servability: 7
-    },
-    {
-        name: "Burano",
-        affordability: 5,
-        tourism: 9,
-        populationDensity: 6,
-        reachability: 7,
-        accessibility: 6,
-        greenSpace: 5,
-        servability: 6
-    },
-    {
-        name: "Giudecca",
-        affordability: 7,
-        tourism: 5,
-        populationDensity: 6,
-        reachability: 6,
-        accessibility: 7,
-        greenSpace: 7,
-        servability: 8
-    },
-    // Add all 126 islands here with their actual scores
-    // ...
-];
+function csvToMatrix(csvText, delimiter = ',') {
+  return csvText
+    .trim()
+    .split('\n')              // split into rows
+    .map(row => row.split(delimiter)); // split each row into columns
+}
+
+function parseIslandsMatrix(matrix) {
+  // Skip the first two rows (header and empty row)
+  const dataRows = matrix.slice(2);
+  
+  return dataRows.map(row => {
+    // Map CSV columns to our expected properties
+    return {
+      name: row[1].trim(), // "Wiki Friendly Name"
+      affordability: parseFloat(row[6]), // "Affordability (Scaled)"
+      tourism: parseFloat(row[10]), // "Touristy (Scaled)"
+      populationDensity: parseFloat(row[12]), // "Congestion (Scaled)"
+      reachability: parseFloat(row[15]), // "Reachability (Scaled)"
+      accessibility: parseFloat(row[14]), // "Accessibility"
+      greenSpace: parseFloat(row[17]), // "Green Space (Scaled)"
+      servability: parseFloat(row[8]) // "Well-Served (Scaled)"
+    };
+  });
+}
+
+let islands = []; // This will hold our parsed data
+
+fetch('./ISLES_ Data Hub - indicatorsInnerCity.csv')
+  .then(response => response.text())
+  .then(csvText => {
+    const matrix = csvToMatrix(csvText);
+    islands = parseIslandsMatrix(matrix);
+    console.log('Loaded islands data:', islands);
+    
+    // Now the rest of your script can use the 'islands' array
+    // All your existing functions will work as they expect the same structure
+  })
+  .catch(err => console.error(err));
+
+// The rest of your existing functions can remain exactly the same
+// They expect an 'islands' array with objects in this format:
+// {
+//   name: string,
+//   affordability: number (1-10),
+//   tourism: number (1-10),
+//   populationDensity: number (1-10),
+//   reachability: number (1-10),
+//   accessibility: number (1-10),
+//   greenSpace: number (1-10),
+//   servability: number (1-10)
+// }
 
 // Helper function to calculate similarity between user preferences and island data
 function calculateSimilarity(userPrefs, island) {

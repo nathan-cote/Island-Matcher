@@ -4,7 +4,6 @@
     --accent-color: #ff5722;
     --text-color: #333;
     --light-text: #666;
-    --background-color: #f9f9f9;
     --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -17,8 +16,11 @@
 body {
     font-family: 'Raleway', sans-serif;
     color: var(--text-color);
-    background-color: var(--background-color);
     line-height: 1.6;
+    background-image: url('Venice_Background.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(3px);
 }
 
 .container {
@@ -30,6 +32,8 @@ body {
 header {
     text-align: center;
     margin-bottom: 2rem;
+    background-color: white;
+    border-radius: 8px;
 }
 
 header h1 {
@@ -172,4 +176,71 @@ button:hover {
     .island-stats {
         grid-template-columns: 1fr;
     }
+}
+
+.questionnaire h4 {
+    color: maroon;
+}
+
+#affordability::-webkit-slider-thumb {
+     width: 20px;
+     height: 20px;
+     background: gold;
+     cursor: pointer;
+     border-radius: 40%;
+     outline: 2px solid black;
+}
+
+#tourism::-webkit-slider-thumb {
+     width: 20px;
+     height: 20px;
+     background: cyan;
+     cursor: pointer;
+     border-radius: 40%;
+     outline: 2px solid black;
+}
+
+#population::-webkit-slider-thumb {
+     width: 20px;
+     height: 20px;
+     background: pink;
+     cursor: pointer;
+     border-radius: 40%;
+     outline: 2px solid black;
+}
+
+#reachability::-webkit-slider-thumb {
+     width: 20px;
+     height: 20px;
+     background: orange;
+     cursor: pointer;
+     border-radius: 40%;
+     outline: 2px solid black;
+}
+
+#accessibility::-webkit-slider-thumb {
+     width: 20px;
+     height: 20px;
+     background: blue;
+     cursor: pointer;
+     border-radius: 40%;
+     outline: 2px solid black;
+}
+
+#green-space::-webkit-slider-thumb {
+     width: 20px;
+     height: 20px;
+     background: green;
+     cursor: pointer;
+     border-radius: 40%;
+     outline: 2px solid black;
+}
+
+#servability::-webkit-slider-thumb {
+     width: 20px;
+     height: 20px;
+     background: red;
+     cursor: pointer;
+     border-radius: 40%;
+     outline: 2px solid black;
 }
