@@ -1,7 +1,7 @@
 function csvToMatrix(csvText, delimiter = ',') {
   return csvText
     .trim()
-    .split('\n')              // split into rows
+    .split('\n') // split into rows
     .map(row => row.split(delimiter)); // split each row into columns
 }
 
@@ -24,7 +24,7 @@ function parseIslandsMatrix(matrix) {
   });
 }
 
-let islands = []; // This will hold our parsed data
+let islands = [];
 
 fetch('./ISLES_ Data Hub - indicatorsInnerCity.csv')
   .then(response => response.text())
@@ -32,24 +32,8 @@ fetch('./ISLES_ Data Hub - indicatorsInnerCity.csv')
     const matrix = csvToMatrix(csvText);
     islands = parseIslandsMatrix(matrix);
     console.log('Loaded islands data:', islands);
-    
-    // Now the rest of your script can use the 'islands' array
-    // All your existing functions will work as they expect the same structure
   })
   .catch(err => console.error(err));
-
-// The rest of your existing functions can remain exactly the same
-// They expect an 'islands' array with objects in this format:
-// {
-//   name: string,
-//   affordability: number (1-10),
-//   tourism: number (1-10),
-//   populationDensity: number (1-10),
-//   reachability: number (1-10),
-//   accessibility: number (1-10),
-//   greenSpace: number (1-10),
-//   servability: number (1-10)
-// }
 
 // Helper function to calculate similarity between user preferences and island data
 function calculateSimilarity(userPrefs, island) {
@@ -64,7 +48,6 @@ function calculateSimilarity(userPrefs, island) {
     const distance = Math.sqrt(sumOfSquares);
     
     // Convert distance to similarity percentage (lower distance = higher similarity)
-    // Max possible distance is sqrt(7 * 10^2) = ~26.46
     const maxDistance = Math.sqrt(7 * 100);
     const similarity = ((maxDistance - distance) / maxDistance) * 100;
     
