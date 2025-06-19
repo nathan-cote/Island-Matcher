@@ -13,13 +13,14 @@ function parseIslandsMatrix(matrix) {
     // Map CSV columns to our expected properties
     return {
       name: row[1].trim(), // "Wiki Friendly Name"
-      affordability: parseFloat(row[6]), // "Affordability (Scaled)"
-      tourism: parseFloat(row[10]), // "Touristy (Scaled)"
-      populationDensity: parseFloat(row[12]), // "Congestion (Scaled)"
-      reachability: parseFloat(row[15]), // "Reachability (Scaled)"
-      accessibility: parseFloat(row[14]), // "Accessibility"
-      greenSpace: parseFloat(row[17]), // "Green Space (Scaled)"
-      servability: parseFloat(row[8]) // "Well-Served (Scaled)"
+      affordability: parseFloat(row[7]), // "Affordability (Scaled)"
+      tourism: parseFloat(row[11]), // "Touristy (Scaled)"
+      populationDensity: parseFloat(row[13]), // "Congestion (Scaled)"
+      reachability: parseFloat(row[16]), // "Reachability (Scaled)"
+      accessibility: parseFloat(row[15]), // "Accessibility"
+      greenSpace: parseFloat(row[18]), // "Green Space (Scaled)"
+      servability: parseFloat(row[9]), // "Well-Served (Scaled)"
+      streetView: row[5].trim()
     };
   });
 }
@@ -117,6 +118,7 @@ function handleFormSubmit(event) {
     document.getElementById('result-accessibility').textContent = island.accessibility;
     document.getElementById('result-green-space').textContent = island.greenSpace;
     document.getElementById('result-servability').textContent = island.servability;
+    document.getElementById('result-streetView').textContent = island.streetView;
     document.getElementById('similarity-score').textContent = `${similarity}%`;
     
     // Show results section
