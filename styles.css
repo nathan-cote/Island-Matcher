@@ -59,6 +59,7 @@ h2 {
     border-radius: 8px;
     box-shadow: var(--card-shadow);
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .form-group {

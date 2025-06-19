@@ -111,13 +111,13 @@ function handleFormSubmit(event) {
     
     // Display results
     document.getElementById('island-name').textContent = island.name;
-    document.getElementById('result-affordability').textContent = island.affordability;
-    document.getElementById('result-tourism').textContent = island.tourism;
-    document.getElementById('result-population').textContent = island.populationDensity;
-    document.getElementById('result-reachability').textContent = island.reachability;
-    document.getElementById('result-accessibility').textContent = island.accessibility;
-    document.getElementById('result-green-space').textContent = island.greenSpace;
-    document.getElementById('result-servability').textContent = island.servability;
+    document.getElementById('result-affordability').textContent = Math.round(island.affordability * 100) / 100;
+    document.getElementById('result-tourism').textContent = Math.round(island.tourism * 100) / 100;
+    document.getElementById('result-population').textContent = Math.round(island.populationDensity * 100) / 100;
+    document.getElementById('result-reachability').textContent = Math.round(island.reachability * 100) / 100;
+    document.getElementById('result-accessibility').textContent = Math.round(island.accessibility * 100) / 100;
+    document.getElementById('result-green-space').textContent = Math.round(island.greenSpace * 100) / 100;
+    document.getElementById('result-servability').textContent = Math.round(island.servability * 100) / 100;
     document.getElementById('result-streetView').textContent = island.streetView;
     document.getElementById('similarity-score').textContent = `${similarity}%`;
     
